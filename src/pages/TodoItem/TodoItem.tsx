@@ -18,13 +18,15 @@ export default function ToDoItem(props: any) { // remember we use typescript
   };
 
   const text = {
+    size: '20px',
+    fontFamily: 'Roboto, sans-serif',
     color: "#879793",
     display: 'flex',
   }
   return (
     <div style={{display: 'flex', justifyContent: 'center'}}>
       <div style={rectangleStyle}>
-        <CheckBox />
+        <CheckBox addArray={props.addArray}/>
         <p style={text}>
           {props.description}
         </p>

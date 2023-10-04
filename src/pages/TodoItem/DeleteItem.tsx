@@ -15,12 +15,13 @@ export default function DeleteItem(props: any) {
     const foundIndex = data.findIndex((item) => item.id === props.id);
     data.splice(foundIndex, 1);
     setData(data)
+    props.addArray(data);
     console.log(data)
   }
   
   return (
-    <>
-      <button style={buttonStyle} onClick={() => deleteItem()}>X</button>
-    </>
+    <button style={buttonStyle} onClick={() => deleteItem()}>
+      X
+    </button>
   )
 }
