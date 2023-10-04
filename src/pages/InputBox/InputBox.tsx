@@ -1,11 +1,10 @@
 // import React from "react"
 import { useState } from "react";
 import { getData, setData } from "../Data/Data.tsx"
-import { ExercisePage } from "../ExercisePage/ExercisePage.tsx"
 
 let globalId = 4;
 
-export default function InputBox() {
+export default function InputBox({ addArray }: any) {
   const rectangleStyle = {
     width: '70%',
     height: '50px',
@@ -41,16 +40,18 @@ export default function InputBox() {
   }
 
   const [desc, setDesc] = useState<string>('');
+  let data = getData()
+  // const [myArray, setMyArray] = useState([...data]);
 
   const handleSubmit = (e: any) => {
     e.preventDefault(); // prevents page refreshing
     console.log("new item added")
-    let data = getData();
     globalId++;
     data.push({
       id: globalId,
       description: desc
     })
+    addArray(data)
     setData(data)
     console.log(data)
   }
